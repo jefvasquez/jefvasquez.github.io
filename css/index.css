@@ -1,0 +1,124 @@
+@import 'buttons.css';
+
+:root {
+  --Primary: #43DDE6;
+  --White: #ffffff; 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--White);
+  background-color: var(--Primary);
+  font-family: 'Lato';
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  max-inline-size: 900px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.player {
+  position: relative;
+  flex: 1;
+}
+
+.player video {
+  inline-size: 100%;
+  aspect-ratio: 16/9;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+.player-title {
+  color: white;
+  font-size: 17px;
+  position: absolute;
+  inset-block-start: 20px;
+  inset-inline-start: 19.5px;
+}
+
+.player-actions {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 1;
+}
+
+.player-progress {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  display: flex;
+  padding: 31px 19.62px;
+}
+
+.player-progress input {
+  flex: 1;
+  z-index: 1;
+}
+
+.player-progress input[type='range'] {
+	border-radius: 4px;
+	height: 4px;
+}
+
+.player-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: .5s opacity;
+}
+
+.player:hover .player-overlay {
+  opacity: 1;
+}
+
+.eclipse {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 28px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+#eclipse_1 {
+  inset-block-end: -95px;
+  inset-inline-end: -95px;
+}
+
+#eclipse_2 {
+  inset-block-start: -95px;
+  inset-inline-start: -95px;
+}
+
+@media (min-width: 426px) {
+  .eclipse {
+    width: 700px;
+    height: 700px;
+    border-width: 80px;
+  }
+
+  #eclipse_1 {
+    inset-block-end: -350px;
+    inset-inline-end: -350px;
+  }
+  
+  #eclipse_2 {
+    inset-block-start: -350px;
+    inset-inline-start: -350px;
+  }
+}
